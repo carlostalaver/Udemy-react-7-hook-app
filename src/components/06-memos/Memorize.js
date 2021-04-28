@@ -10,7 +10,7 @@ export const Memorize = () => {
     const [show, setShow] = useState(true);
 
 
-    /* como este <Small value={ counter } esta en un memo, cuando se modifique el state del componente
+    /* como este <Small value={ counter } /> esta en un memo, cuando se modifique el state del componente
        padre "Memorize.js", no se volvera a renderizar el componente Small */
     return (
         <div>
@@ -27,7 +27,7 @@ export const Memorize = () => {
             
             <button
                 className="btn btn-outline-primary ml-3"
-                onClick= {() => { setShow(!show) }}
+                onClick= {() => { setShow( !show) }}
             >
                 Show/hide {JSON.stringify(show)}
             </button>

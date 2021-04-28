@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { useCounter } from '../../hooks/useCounter';
 import '../02-useEffect/effects.css'
 
 export const MemoHook = () => {
      
-    const { counter , increment } = useCounter(5000);
+    const { counter , increment } = useCounter(500);
 
     const [show, setShow] = useState(true);
 
-    const procesoPesado = () => {
+    const procesoPesado = (iteraiones) => {
 
         for (let i = 0; i < iteraiones; i++) {
             console.log('Ahi vamos... !');
@@ -17,11 +17,15 @@ export const MemoHook = () => {
         return `${ iteraiones } iterciones realizadas.`
     }
 
+    const memoProcesoPesado = useMemo(() => procesoPesado(counter), [ counter ])
+
     return (
         <div>
             <h1> MemoHook </h1>
-            <h3>Memorize: <small> { counter } </small> </h3>
+            <h3>Counter: <small> { counter } </small> </h3>
             <hr />
+
+            <p>{ memoProcesoPesado }</p>
 
             <button
                 className="btn btn-primary"
