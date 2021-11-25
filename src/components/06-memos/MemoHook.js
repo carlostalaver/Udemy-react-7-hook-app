@@ -17,6 +17,9 @@ export const MemoHook = () => {
         return `${ iteraiones } iterciones realizadas.`
     }
 
+    /* useMemo me permite mantener en memoria el resulado de llamar procesoPesado y mientras no cambie
+        la dependencia counter, react no volvera a ejecutar dicha funcion.
+    */
     const memoProcesoPesado = useMemo(() => procesoPesado(counter), [ counter ])
 
     return (
@@ -24,6 +27,8 @@ export const MemoHook = () => {
             <h1> MemoHook </h1>
             <h3>Counter: <small> { counter } </small> </h3>
             <hr />
+
+            {/* <p>{ procesoPesado(counter) }</p> */}
 
             <p>{ memoProcesoPesado }</p>
 

@@ -14,7 +14,7 @@ const FormWithCustomHook = () => {
     const { name, email, password} = formValues;
 
     useEffect(() => {
-        console.log("Llamando al efecto...!");
+        console.log("Llamando al efecto en FormWithCustomHook...!");
     }, []); //con el 2do argumento este efecto solo ejecutara 1 vez cuando el componente se monte
 
     /*  con el 2do argumento [formValues] 
@@ -32,7 +32,7 @@ const FormWithCustomHook = () => {
     }, [formValues.email]);
     */
 
-    // es quivalente al efecto  inmediatamente anterior
+    // es quivalente al efecto  inmediatamente anterior porq desestructure formValues.
     useEffect(() => {
         console.log("Llamando al efecto formValues.email...!");
     }, [email]);

@@ -4,6 +4,7 @@ import Message from './Message'
 import './effects.css'
 
 const SimpleForm = () => {
+    
     const [formState, setFormState] = useState({
         name: '',
         email: ''
@@ -13,10 +14,11 @@ const SimpleForm = () => {
 
     useEffect(() => {
         console.log("Llamando al efecto...!");
-    }, []); //con el 2do argumento este efecto solo ejecutara 1 vez cuando el componente se monte
+    }, []); //con el 2do argumento este efecto solo ejecutara 1 vez, cuando el componente se monte
 
     /*  con el 2do argumento [formState] 
-        este efecto solo ejecutara CADA vez que hay un cambio en el estado formState */
+        este efecto solo ejecutara CADA vez que hay un cambio en cualquiera
+        de las propiedades del estado formState */
     useEffect(() => {
         console.log("Llamando al efecto formState...!");
     }, [formState]);
@@ -30,7 +32,7 @@ const SimpleForm = () => {
     const handleInputChange = ({ target }) => {
         setFormState({
             ...formState,
-            [target.name]: target.value
+            [target.name]: target.value // computo el nombre la propiedad name que en este caso es "name"
         })
     }
 
@@ -45,8 +47,8 @@ const SimpleForm = () => {
                     className="form-control"
                     placeholder="Tu nombre"
                     autoComplete="off"
-                    value={name}
-                    onChange={handleInputChange}
+                    value={ name }
+                    onChange={ handleInputChange }
                 />
             </div>
 
@@ -57,8 +59,8 @@ const SimpleForm = () => {
                     className="form-control"
                     placeholder="email@email.com"
                     autoComplete="off"
-                    value={email}
-                    onChange={handleInputChange}
+                    value={ email }
+                    onChange={ handleInputChange }
                 />
             </div>
 

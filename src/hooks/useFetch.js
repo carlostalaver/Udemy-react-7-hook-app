@@ -3,11 +3,14 @@ import { useEffect, useRef, useState } from "react"
 const useFetch = (url) => {
 
     /* isMounted es para mantener la referencia de si el componente está montado */
-    const isMounted = useRef(true);
+    const isMounted = useRef(false);
     const [state, setState] = useState({ data: null, loading: true, error: null });
 
     useEffect(() => {
-        
+        // en lo que react renderice el componente es que lo seteo a true
+        isMounted.current(true); 
+
+        // hago uso del useEffect para trabajar con la funcion que se dispara cuando el hook se desmonte
         return () => { // funcion que limpia el efecto, se disparará cuando se desmonte el efecto.
             isMounted.current = false;
         }
@@ -15,11 +18,14 @@ const useFetch = (url) => {
 
     useEffect(() => {
 
+        setState({ data: null, loading: true, error: null });
+
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
 
-                // simulo un retrazo en la llamada http
+                // simulo un retrazo en la llamada http y solo actualizará el 
+                //state SI y SOLO SI el componente que hace uso de esete hook personalizado está montado
                 setTimeout(() => {
                     isMounted.current && (setState({
                         loading: false,

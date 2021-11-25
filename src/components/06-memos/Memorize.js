@@ -29,7 +29,8 @@ export const Memorize = () => {
                 className="btn btn-outline-primary ml-3"
                 onClick= {() => { setShow( !show) }}
             >
-                Show/hide {JSON.stringify(show)}
+                {/*  Uso JSON.stringify(show) xq en reactlas variables booleanas no se muestran */}
+                Show/hide { JSON.stringify( show ) }
             </button>
         </div>
     )
