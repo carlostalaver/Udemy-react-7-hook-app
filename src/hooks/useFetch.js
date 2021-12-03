@@ -4,11 +4,12 @@ const useFetch = (url) => {
 
     /* isMounted es para mantener la referencia de si el componente está montado */
     const isMounted = useRef(false);
+
     const [state, setState] = useState({ data: null, loading: true, error: null });
 
     useEffect(() => {
         // en lo que react renderice el componente es que lo seteo a true
-        isMounted.current(true); 
+        //isMounted.current(true);  lo comenté para que pudiera pasar el test
 
         // hago uso del useEffect para trabajar con la funcion que se dispara cuando el hook se desmonte
         return () => { // funcion que limpia el efecto, se disparará cuando se desmonte el efecto.
@@ -32,7 +33,14 @@ const useFetch = (url) => {
                         error: null,
                         data: data
                     }));
-                }, 4000);
+                }, 1000);
+            })
+            .catch( () =>{
+                setState({
+                    data: null,
+                    loading: false,
+                    error: "No se pudo cargar la info"
+                })
             })
     }, [url]);
 

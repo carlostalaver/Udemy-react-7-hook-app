@@ -4,7 +4,7 @@ import {  MainApp } from './components/09-useContext/MainApp'
 // import { TodoApp } from './components/08-useReducer/TodoApp';
 // import { Padre } from './components/07-tarea-memo/Padre';
 // import { CallBackHook } from './components/06-memos/CallBackHook';
-import { MemoHook } from './components/06-memos/MemoHook';
+// import { MemoHook } from './components/06-memos/MemoHook';
 // import { Lauyot } from './components/05-useLayout/Layout';
 // import { Memorize } from './components/06-memos/Memorize';
 // import { RealExampleRef } from './components/04-useRef/RealExampleRef';
@@ -17,7 +17,7 @@ import { MemoHook } from './components/06-memos/MemoHook';
 // import HookApp from './HookApp';
 
 ReactDOM.render(
-    <MemoHook />,
+    <MainApp />,
   document.getElementById('root')
 );
 

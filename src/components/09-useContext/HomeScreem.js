@@ -3,6 +3,7 @@ import { UserContext } from './UserContext';
 
 export const HomeScreem = () => {
 
+    /* De todos los contexts que pudiera tener mi app, solicito el UserContext */
    const { user } = useContext(UserContext);
 
    console.log(user);

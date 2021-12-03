@@ -11,6 +11,11 @@ export const MainApp = () => {
        pasandole como parametro mi contexto, es decir, el UserContext, ver HomeScreem.js
        */
     return (
+        /* Ojo que UserContext es mi componente de orden superior que definí en UserContext.js.
+            {user, setUser}: es un objeto literal que le paso en la propiedad value.
+            cualquier cambio que se haga en el objeto user lo pillará UserContext y comunicará dichos cambios
+            al resto de los hijos que hagan uso de este contexto
+        */
         <UserContext.Provider value= { {user, setUser} }>
             <AppRouter />
         </UserContext.Provider>
